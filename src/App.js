@@ -1,9 +1,9 @@
+// 📦 Imports
 import React, { useReducer, useState, useEffect } from 'react';
 import './App.css';
 
 
-
-// Initial State
+// 🧠 Initial State
 const initialState = {
   currentQuestionIndex: 0,
   score: 0,
@@ -12,7 +12,7 @@ const initialState = {
   timer: 30, // Timer in seconds
 };
 
-// Actions
+// ⚙️ Action Types
 const ACTIONS = {
   NEXT_QUESTION: 'next-question',
   SELECT_ANSWER: 'select-answer',
@@ -21,7 +21,7 @@ const ACTIONS = {
   RESET_TIMER: 'reset-timer',
 };
 
-// Reducer Function
+// 🔁 Reducer Function
 function quizReducer(state, action) {
   switch (action.type) {
     case ACTIONS.SELECT_ANSWER:
@@ -49,7 +49,7 @@ function quizReducer(state, action) {
     case ACTIONS.RESET_TIMER:
       return {
         ...state,
-        timer: 30, // Reset timer to 30 seconds
+        timer: 30,
       };
 
     case ACTIONS.END_QUIZ:
@@ -63,10 +63,10 @@ function quizReducer(state, action) {
   }
 }
 
-// Quiz Data
+// ❓ Quiz Questions Array
 const questions = [
   {
-    question: 'What is the chemical formula for water? ',
+    question: 'What is the chemical formula for water?',
     answers: [
       { text: 'H₂O', isCorrect: true },
       { text: 'CO₂', isCorrect: false },
@@ -102,7 +102,7 @@ const questions = [
     type: 'multiple-choice',
   },
   {
-    question: 'Who is known as the "Father of the Nation" in India? ',
+    question: 'Who is known as the "Father of the Nation" in India?',
     answers: [
       { text: 'Mahatma Gandhi', isCorrect: true },
       { text: 'pandit jawahar lal nehru', isCorrect: false },
@@ -129,7 +129,7 @@ const questions = [
     type: 'multiple-choice',
   },
   {
-    question: ' What is the largest mammal in the world?',
+    question: 'What is the largest mammal in the world?',
     answers: [
       { text: 'African Elephant', isCorrect: false },
       { text: 'Blue Whale', isCorrect: true },
@@ -147,7 +147,7 @@ const questions = [
     type: 'multiple-choice',
   },
   {
-    question: ' What is the square root of 64?',
+    question: 'What is the square root of 64?',
     answers: [
       { text: '6', isCorrect: false },
       { text: '7', isCorrect: false },
@@ -157,15 +157,13 @@ const questions = [
   },
 ];
 
-
-
+// 🧩 Quiz App Component
 function QuizApp() {
   const [state, dispatch] = useReducer(quizReducer, initialState);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
-
   const currentQuestion = questions[state.currentQuestionIndex];
 
-  // Timer Effect
+  // ⏳ Timer Logic
   useEffect(() => {
     if (state.timer === 0) {
       handleNextQuestion();
@@ -178,6 +176,7 @@ function QuizApp() {
     return () => clearInterval(timerInterval);
   }, [state.timer]);
 
+  // ✅ Handle Answer Selection
   const handleAnswerSelect = (answer) => {
     setSelectedAnswer(answer);
     dispatch({
@@ -186,12 +185,14 @@ function QuizApp() {
     });
   };
 
+  // 👉 Handle Next Question
   const handleNextQuestion = () => {
     setSelectedAnswer(null);
     dispatch({ type: ACTIONS.RESET_TIMER });
     dispatch({ type: ACTIONS.NEXT_QUESTION, payload: { totalQuestions: questions.length } });
   };
 
+  // 🏁 Show Results Section
   if (state.showResults) {
     return (
       <div className="quiz-results">
@@ -209,6 +210,7 @@ function QuizApp() {
     );
   }
 
+  // 📋 Main Quiz UI
   return (
     <div className="quiz-app">
       <h1>Quiz Application</h1>
