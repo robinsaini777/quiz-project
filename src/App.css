@@ -11,7 +11,6 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url('/Image\ 8\,\ 25.png');
   backdrop-filter: blur(8px);
   background-repeat: no-repeat;
   background-size: cover;
@@ -26,10 +25,10 @@ body {
   background: #fff;
   padding: 20px 30px;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
   width: 400px;
   max-width: 90%;
-  background-color: #03a9f4;
+  background-color: #3416e7;
 }
 
 /* =========================
@@ -38,7 +37,7 @@ body {
 h1,
 h2,
 h3 {
-  color: lightgreen;
+  color: #ffa07a;
   margin: 0 0 20px;
   text-align: center;
 }
@@ -61,7 +60,7 @@ h3 {
   padding: 10px 15px;
   font-size: 1rem;
   color: #fff;
-  background-color: #3416e7;
+  background-color: #ffa07a;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -75,6 +74,10 @@ h3 {
 .answers button:disabled {
   background-color: #ddd;
   cursor: not-allowed;
+}
+
+.qst {
+  color: white;
 }
 
 /* =========================
@@ -113,7 +116,7 @@ h3 {
    6. Score & Results
 ========================= */
 .scr {
-  color: white;
+  color: black;
 }
 
 .quiz-results {
@@ -128,7 +131,7 @@ h3 {
 .quiz-results ul li {
   font-size: 1rem;
   margin: 10px 0;
-  color: white;
+  color:black;
 }
 
 /* =========================
@@ -145,6 +148,7 @@ h3 {
     width: 100%;
     padding: 20px;
     border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
   }
 
   .answers button,

@@ -218,7 +218,7 @@ function QuizApp() {
         <h2>
           Question {state.currentQuestionIndex + 1}/{questions.length}
         </h2>
-        <p>{currentQuestion.question}</p>
+        <p className='qst'>{currentQuestion.question}</p>
         <div className="answers">
           {currentQuestion.answers.map((answer, index) => (
             <button
