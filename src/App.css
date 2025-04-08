@@ -1,3 +1,6 @@
+/* =========================
+   1. Base Styling & Layout
+========================= */
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f9;
@@ -13,9 +16,12 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  overflow: auto;
 }
 
-
+/* =========================
+   2. Quiz App Container
+========================= */
 .quiz-app {
   background: #fff;
   padding: 20px 30px;
@@ -26,11 +32,15 @@ body {
   background-color: #03a9f4;
 }
 
+/* =========================
+   3. Headings & Text
+========================= */
 h1,
 h2,
 h3 {
   color: lightgreen;
   margin: 0 0 20px;
+  text-align: center;
 }
 
 .question p {
@@ -38,6 +48,9 @@ h3 {
   margin-bottom: 20px;
 }
 
+/* =========================
+   4. Answer Buttons
+========================= */
 .answers {
   display: flex;
   flex-direction: column;
@@ -64,16 +77,21 @@ h3 {
   cursor: not-allowed;
 }
 
+/* =========================
+   5. Footer Section
+========================= */
 .footer {
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .footer p {
   font-size: 1rem;
-  color: #666;
+  color: #fff;
 }
 
 .footer button {
@@ -91,6 +109,9 @@ h3 {
   background-color: #218838;
 }
 
+/* =========================
+   6. Score & Results
+========================= */
 .scr {
   color: white;
 }
@@ -108,4 +129,41 @@ h3 {
   font-size: 1rem;
   margin: 10px 0;
   color: white;
+}
+
+/* =========================
+   7. Responsive Design
+========================= */
+@media (max-width: 480px) {
+  body {
+    padding: 20px;
+    height: auto;
+    align-items: flex-start;
+  }
+
+  .quiz-app {
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  .answers button,
+  .footer button {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .question p {
+    font-size: 1rem;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .footer p {
+    text-align: center;
+    width: 100%;
+  }
 }
